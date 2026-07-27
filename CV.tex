@@ -1,0 +1,415 @@
+%-----------------------------------------------------------------------------------------------------------------------------------------------%
+%	The MIT License (MIT)
+%
+%	Copyright (c) 2021 Jitin Nair
+%
+%	Permission is hereby granted, free of charge, to any person obtaining a copy
+%	of this software and associated documentation files (the "Software"), to deal
+%	in the Software without restriction, including without limitation the rights
+%	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+%	copies of the Software, and to permit persons to whom the Software is
+%	furnished to do so, subject to the following conditions:
+%	
+%	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+%	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+%	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+%	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+%	THE SOFTWARE.
+%	
+%
+%-----------------------------------------------------------------------------------------------------------------------------------------------%
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT DEFINITION
+%----------------------------------------------------------------------------------------
+
+% article class because we want to fully customize the page and not use a cv template
+\documentclass[a4paper,12pt]{article}
+
+%----------------------------------------------------------------------------------------
+%	FONT
+%----------------------------------------------------------------------------------------
+
+% % fontspec allows you to use TTF/OTF fonts directly
+% \usepackage{fontspec}
+% \defaultfontfeatures{Ligatures=TeX}
+
+% % modified for ShareLaTeX use
+% \setmainfont[
+% SmallCapsFont = Fontin-SmallCaps.otf,
+% BoldFont = Fontin-Bold.otf,
+% ItalicFont = Fontin-Italic.otf
+% ]
+% {Fontin.otf}
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES
+%----------------------------------------------------------------------------------------
+\usepackage{url}
+\usepackage{parskip} 	
+
+%other packages for formatting
+\RequirePackage{color}
+\RequirePackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[scale=0.9]{geometry}
+
+%tabularx environment
+\usepackage{tabularx}
+
+%for lists within experience section
+\usepackage{enumitem}
+
+% centered version of 'X' col. type
+\newcolumntype{C}{>{\centering\arraybackslash}X} 
+
+%to prevent spillover of tabular into next pages
+\usepackage{supertabular}
+\usepackage{tabularx}
+\newlength{\fullcollw}
+\setlength{\fullcollw}{0.47\textwidth}
+
+%custom \section
+\usepackage{titlesec}				
+\usepackage{multicol}
+\usepackage{multirow}
+
+%CV Sections inspired by: 
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{10pt}{10pt}
+
+
+%Setup hyperref package, and colours for links
+\usepackage[unicode, draft=false]{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
+
+
+%for social icons
+\usepackage{fontawesome5}
+
+%debug page outer frames
+%\usepackage{showframe}
+
+
+% job listing environments
+\newenvironment{jobshort}[2]
+    {
+    \begin{tabularx}{\linewidth}{@{}l X r@{}}
+    \textbf{#1} & \hfill &  #2 \\[3.75pt]
+    \end{tabularx}
+    }
+    {
+    }
+
+\newenvironment{joblong}[2]
+    {
+    \begin{tabularx}{\linewidth}{@{}l X r@{}}
+    \textbf{#1} & \hfill &  #2 \\[3.75pt]
+    \end{tabularx}
+    \begin{minipage}[t]{\linewidth}
+    \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt,label=--]
+    }
+    {
+    \end{itemize}
+    \end{minipage}    
+    }
+
+
+
+%----------------------------------------------------------------------------------------
+%	BEGIN DOCUMENT
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+% non-numbered pages
+\pagestyle{empty}
+
+%----------------------------------------------------------------------------------------
+%	TITLE
+%----------------------------------------------------------------------------------------
+
+% \begin{tabularx}{\linewidth}{ @{}X X@{} }
+% \huge{Your Name}\vspace{2pt} & \hfill \emoji{incoming-envelope} email@email.com \\
+% \raisebox{-0.05\height}\faGithub\ username \ | \
+% \raisebox{-0.00\height}\faLinkedin\ username \ | \ \raisebox{-0.05\height}\faGlobe \ mysite.com  & \hfill \emoji{calling} number
+% \end{tabularx}
+
+\begin{tabularx}{\linewidth}{@{} C @{}}
+    \Huge{Arnab Das}                                                                                            \\[7.5pt]
+    \href{https://github.com/thisisarnabdas}{\raisebox{-0.05\height}\faGithub\ thisisarnabdas} \ $|$ \
+    \href{mailto:arnab.das@g.bracu.ac.bd}{\raisebox{-0.05\height}\faEnvelope \ arnab.das@g.bracu.ac.bd} \\
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+% EXPERIENCE SECTIONS
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+%	CAREER OBJECTIVE
+%----------------------------------------------------------------------------------------
+\section{Career Objective}
+%Computer Science graduate with a strong foundation in robotics, digital logic, and computer architecture, looking to move into Electrical and Computer Engineering to gain hands-on research experience in control systems and embedded hardware, and eventually build autonomous systems that combine intelligent software with efficient hardware design.
+
+Computer Science graduate with a strong foundation in AI, robotics, digital logic, and computer architecture, looking to move into Electrical and Computer Engineering to gain hands-on research experience and contribute to the development of intelligent and efficient systems.
+
+%Computer Science graduate with a strong foundation in machine learning, computer vision seeking to join the Department of Electrical and Computer Engineering to conduct research in medical image computing and computer-assisted intervention, with the goal of developing AI-driven systems for image-guided therapy.
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION
+%----------------------------------------------------------------------------------------
+\section{Education}
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+    2025 & \href{https://drive.google.com/file/d/1VTK5ltNdR83h-0LRuFuUIcngbCqoCtQM/view?usp=sharing}{\textcolor{black}{Bachelor of science in Computer Science at \textbf{BRAC University}}} \hfill (CGPA: 3.89/4.00) \\
+\end{tabularx}
+
+%Experience
+\section{Relevant Coursework}
+
+%\begin{joblong}{CSE496: Ethical Hacking}{}
+%    \item Studied penetration testing methodologies including reconnaissance, network scanning, and brute-force techniques using tools such as Nmap
+%    \item Practiced web exploitation techniques covering SQL injection, cross-site scripting, session hijacking, and OWASP Top 10 vulnerabilities using Burp Suite
+%    \item Explored digital forensics and reverse engineering concepts through hands-on analysis using Autopsy and related tools
+%    \item Learned security research practices including bug reporting, vulnerability impact scoring with CVSS, and attack classification using MITRE ATT\&CK
+%    \item Examined offensive security topics such as malware behavior, phishing, and spam analysis through practical labs and CTF platforms
+%\end{joblong}
+
+%\begin{joblong}{CSE470: Software Engineering}{}
+%	\item Learned the software development life cycle and requirement analysis, including requirements definition and functional specifications
+%	\item Studied modular and structured design including data specifications and MVC architecture
+%	\item Learned design patterns including Singleton, Adapter, and Observer, implemented in Python and Java
+%	\item Covered verification, documentation, and software maintenance practices
+%	\item Learned software project organization, quality assurance, management, and communication skills used in industry
+%\end{joblong}
+
+\begin{joblong}{CSE461: Introduction to Robotics}{}
+    \item Studied forward and inverse kinematics for robotic manipulators and industrial arm configurations
+    \item Practiced trajectory planning techniques including joint space, linear, and non-linear path planning
+    \item Learned PID control theory, block diagram analysis, and open/closed loop system behavior
+    \item Studied robot navigation concepts including path planning, localization, mapping, and occupancy grids
+    \item Applied machine learning and neural network concepts to robotic perception and decision-making tasks
+    \item Learned convolutional neural networks (CNNs) for computer vision applications in robotics
+\end{joblong}
+
+%\begin{joblong}{CSE447: Cryptography and Cryptanalysis}{}
+%    \item Learned core information security principles including confidentiality, integrity, availability, authentication, and access control
+%    \item Understood classical and modern symmetric key cryptography, including Caesar ciphers, DES, Triple DES, and AES with their operational modes
+%    \item Covered asymmetric cryptography concepts such as RSA, Diffie-Hellman key exchange, and elliptic curve cryptography for secure communication
+%    \item Examined hash functions and their applications in message integrity, digital signatures, and password security
+%    \item Understood authentication protocol design including nonces, mutual authentication, zero knowledge proofs, and real-world protocols such as SSH and SSL
+%\end{joblong}
+
+%\begin{joblong}{CSE426: Basic Graph Theory}{}
+%	\item Learned foundational graph theory concepts including graph terminology, adjacency, degree, subgraphs, standard graph classes, and graph representation using adjacency matrices and adjacency lists
+%	\item Covered paths, cycles, walks, and graph connectivity including Eulerian and Hamiltonian graphs, cut vertices, blocks, and 2-connected graphs with ear decomposition
+%	\item Understood trees and their properties including rooted trees, spanning trees, Cayley's formula for counting trees, distances in graphs, and graceful labeling
+%	\item Studied matching and covering problems in graphs including perfect and maximum matchings, Hall's theorem, independent sets, vertex covers, dominating sets, and graph factors
+%	\item Studied planar graphs and graph coloring, covering Kuratowski's characterization, Euler's formula, vertex and edge coloring theorems, the Four Color problem, and chromatic polynomials
+%	\item Learned digraphs including digraph terminology, Eulerian and Hamiltonian digraphs
+%\end{joblong}
+
+%\begin{joblong}{CSE423: Computer Graphics}{}
+%    \item Learned the fundamentals of computer graphics including display hardware, raster and vector display technologies, frame buffers, and the rendering pipeline
+%    \item Practiced scan conversion and rasterization through line drawing algorithms such as DDA and Midpoint, as well as clipping techniques including Cohen-Sutherland and Cyrus-Beck
+%    \item Applied 2D and 3D geometric transformations including translation, rotation, scaling, reflection, and shearing using homogeneous coordinates and composite transformation matrices
+%    \item Studied color theory and illumination models covering RGB, HSV, and HLS color systems alongside Phong's ambient, diffuse, and specular reflection model with flat, Gouraud, and Phong shading
+%    \item Understood perspective and parallel projection techniques and their corresponding 4×4 projection matrices for 3D-to-2D scene rendering
+%\end{joblong}
+
+\begin{joblong}{CSE422: Artificial Intelligence}{}
+	\item Studied AI foundations including the Turing test, rational versus human behavior, and AI agents
+	\item Learned informed and local search including state space representation, heuristic formation, greedy best-first search, A* search, heuristic admissibility and consistency, hill climbing, simulated annealing, and gradient descent
+	\item Solved problems using genetic algorithms for the n-queens, knapsack, and traveling salesman problems
+	\item Covered two-player game trees including minimax and alpha-beta pruning
+	\item Studied probability theory including joint probability distributions and independence, and covered naive Bayes classification using Bayes theorem
+	\item Learned supervised learning through linear and logistic regression to predict outcomes, trained perceptron and neural network models using gradient descent and backpropagation, and built decision trees for classification using the ID3 algorithm, entropy, and information gain
+\end{joblong}
+
+%\begin{joblong}{CSE421: Computer Networks}{}
+%	\item Studied protocol layering, the OSI and TCP/IP models, standards, and addressing across network layers
+%	\item Learned the application layer including HTTP, cookies, web caching, HTTPS, email (SMTP, POP3, IMAP), and DNS
+%	\item Studied the transport layer including TCP and UDP, port numbers, the three way handshake, sliding window flow control, and TCP congestion control
+%	\item Worked with IPv4 and IPv6 addressing, subnetting and VLSM, DHCP, NAT/PAT, and port forwarding
+%	\item Learned packet switching, static and dynamic routing (distance vector and link state), and diagnostic tools like ICMP, ping, and traceroute
+%	\item Studied the data link layer including framing, MAC addressing, ARP, and switch forwarding and self-learning
+%\end{joblong}
+
+%\begin{joblong}{CSE420: Compiler Design}{}
+%	\item Learned the structure and stages of a compiler, the analysis-synthesis model, and lexical analysis including tokens, patterns, regular definitions, and lexical analyzer construction
+%	\item Studied syntax analysis including context-free grammars, parse trees, ambiguity, bottom-up parsing, and LR(0), SLR, and CLR(1) parser construction
+%	\item Learned symbol tables and syntax-directed translation including inherited and synthesized attributes, dependency graphs, S-attributed and L-attributed definitions, and type checking for arrays and records
+%	\item Studied intermediate code generation including three address codes, quadruples, triples, array access translation, and control flow statement translation
+%	\item Learned compilation of object-oriented language features including field access, method translation, and dynamic dispatch, and studied runtime storage organization including stack and heap memory layout
+%\end{joblong}
+
+%\begin{joblong}{CSE370: Database Systems}{}
+%    \item Learned the fundamental concepts of database systems, including DBMS architecture, data independence, and the three-schema model
+%    \item Built data models using Entity-Relationship (ER) and Enhanced ER diagrams, covering entity types, relationships, constraints, specialization, and generalization
+%    \item Understood the relational model including schema design, integrity constraints, and relational database operations such as insert, delete, and update
+%    \item Practiced database normalization through functional dependencies and normal forms (1NF, 2NF, 3NF, and BCNF) to eliminate redundancy and anomalies
+%    \item Wrote SQL queries for data definition, manipulation, aggregation, joins, views, and understood transaction management with ACID properties and concurrency control
+%\end{joblong}
+
+%\begin{joblong}{CSE340: Computer Organization \& Architecture}{}
+%    \item Learned MIPS assembly language including instruction formats, register conventions, logical operations, and branching for decision-making
+%    \item Understood procedure calling conventions including stack management, argument passing, and return address handling in hardware
+%    \item Covered integer arithmetic operations including addition, subtraction, and multiplication at the hardware level with signed and unsigned representations
+%    \item Gained understanding of processor datapath and control unit design, including single-cycle and pipelined implementation schemes
+%    \item Studied pipeline hazards including data, structural, and control hazards, and advanced techniques such as forwarding, stalling, and instruction-level parallelism
+%\end{joblong}
+
+%\begin{joblong}{CSE331: Automata \& Computability}{}
+%    \item Studied formal language theory including symbols, strings, alphabets, and language operations such as Kleene closure and concatenation
+%    \item Learned regular expressions and their properties, and practiced constructing regular expressions for pattern-based languages
+%    \item Designed and analyzed Deterministic and Nondeterministic Finite Automata (DFA and NFA), including conversion between the two using subset construction and minimization via Hopcroft's Algorithm
+%    \item Covered conversion techniques between regular expressions, NFAs, and DFAs using Thompson's Construction and the State Elimination Method
+%    \item Learned Context-Free Grammars (CFG) and Pushdown Automata (PDA) to describe and recognize languages beyond the capability of finite automata
+%\end{joblong}
+
+\begin{joblong}{CSE330: Numerical Methods}{}
+	\item Studied floating-point arithmetic including fixed-point and floating-point number representation, significant figures, rounding error, and loss of significance
+	\item Learned polynomial interpolation methods including Taylor series, Lagrange and Newton divided-difference forms, interpolation error, and convergence with Chebyshev nodes
+	\item Covered numerical differentiation and root-finding methods including finite differences, Richardson extrapolation, interval bisection, fixed point iteration, Newton's method, and quasi-Newton methods
+	\item Solved systems of linear equations using Gaussian elimination, LU decomposition, and pivoting, and studied vector and matrix norms and conditioning
+	\item Studied least-squares approximation including orthogonality, discrete and continuous least squares, QR decomposition, and orthogonal polynomials
+	\item Learned numerical integration techniques including Newton-Cotes formulae, composite rules, and Gaussian quadrature
+\end{joblong}
+
+%\begin{joblong}{CSE321: Operating Systems}{}
+%	\item Learned process concepts including process states, inter-process communication, and process creation and termination
+%	\item Studied threads including multicore programming, multithreading models, thread libraries, and threading issues
+%	\item Learned CPU scheduling algorithms including FCFS, SJF, Priority, Round Robin, and multilevel queue and multilevel feedback queue scheduling
+%	\item Studied process synchronization including race conditions, the critical section problem, test-and-set, compare-and-swap, mutex locks, semaphores, and classical synchronization problems
+%	\item Learned memory management and file systems including paging, virtual memory, demand paging, page replacement algorithms (FIFO, LRU, Optimal), file concepts, indexed allocation, UNIX inodes, and journaling
+%	\item Analyzed security and protection in operating systems including program threats, firewalls, protection domains, access matrix, and mandatory access control, and gained hands-on Linux systems programming experience in C, pthreads, and inter-process communication through lab work
+%\end{joblong}
+
+\begin{joblong}{CSE260: Digital Logic Design}{}
+	\item Learned number systems and binary arithmetic, and studied Boolean algebra and simplification techniques
+	\item Used Karnaugh map and tabulation methods to minimize combinational circuits and calculate SOP and POS expressions
+	\item Designed and analyzed combinational circuits including adders, subtractors, comparators, decoders, encoders, and multiplexers
+	\item Designed and analyzed sequential circuits including flip-flops, counters, registers, and memory elements
+	\item Built and troubleshot combinational and sequential circuits through weekly lab work and a design project
+\end{joblong}
+
+%\begin{joblong}{CSE230: Discrete Mathematics}{}
+%	\item Learned logic and proofs including propositional logic, logical equivalences, predicates, quantifiers, direct and indirect proofs, and contradiction methods
+%	\item Studied set theory, functions, and sequences covering basic set operations, Venn diagrams, domain, range, invertibility, compositions, and the growth of functions
+%	\item Covered mathematical induction, basic recurrence relations, recursive definitions, and recursive algorithms
+%	\item Solved problems in number theory using divisibility, modular arithmetic, prime numbers, greatest common divisor, least common multiple, and the Euclidean algorithm
+%	\item Learned matrix operations, time complexity of algorithms, and foundational graph theory concepts including graph models, terminology, and algorithms
+%\end{joblong}
+
+%\begin{joblong}{CSE221: Algorithms}{}
+%    \item Learned core algorithm design paradigms including Divide and Conquer, Dynamic Programming, and Greedy methods
+%    \item Studied asymptotic analysis techniques to evaluate time and space complexity of algorithms
+%    \item Implemented and compared graph algorithms including BFS, DFS, Dijkstra, Bellman-Ford, and Minimum Spanning Trees
+%    \item Practiced sorting algorithms such as Merge Sort, Quick Sort, and Heap Sort through weekly lab sessions
+%    \item Explored NP-completeness, problem reductions, and the boundaries of computational tractability
+%\end{joblong}
+
+\begin{joblong}{STA301: Modern Probability Theory \& Stochastic Processes}{}
+	\item Reviewed core probability theory including conditional probability, independence, random variables, joint/marginal/conditional distributions, and expectation and variance
+	\item Studied discrete distributions (binomial, Poisson, hypergeometric, geometric, negative binomial) and continuous distributions (uniform, exponential, gamma, normal), along with sampling distributions and the Central Limit Theorem
+	\item Learned the fundamentals of stochastic processes including state space, the Markov property, transition probability matrices, and the Chapman-Kolmogorov equation
+	\item Analyzed Markov chains covering limiting behavior, classification of states, irreducibility, and Hidden Markov Models
+	\item Studied applied stochastic models including random walks, the Gambler's Ruin problem, Poisson processes, and birth-death and queueing processes
+\end{joblong}
+
+\begin{joblong}{STA201: Elements of Statistics \& Probability}{}
+	\item Learned data summarization and descriptive statistics including graphical presentation, measures of central tendency, dispersion, box plots, and outlier detection
+	\item Studied correlation and simple/multiple linear regression analysis
+	\item Covered foundational probability concepts including sample space, events, addition and multiplication rules, conditional probability, independence, and Bayes' theorem
+	\item Explored random variables and probability distributions including expectation, variance, joint distributions, and binomial, geometric, Poisson, normal, and exponential distributions
+	\item Learned statistical hypothesis testing including one-sample and two-sample z-tests and t-tests for population means
+\end{joblong}
+
+\begin{joblong}{MAT216: Linear Algebra \& Fourier Analysis}{}
+	\item Learned linear systems including row reduction, echelon forms, vector equations, and linear independence
+	\item Studied matrix algebra including matrix operations, matrix inverses, determinants, and applications to computer graphics
+	\item Covered vector spaces and subspaces including null, column, and row spaces, basis, and rank
+	\item Learned eigenvalues, eigenvectors, and diagonalization, and studied orthogonality using inner products, projections, and the Gram-Schmidt process
+	\item Studied methods for solving boundary value problems and their applications
+	\item Studied Fourier series, orthogonal functions, and Fourier sine and cosine transforms
+\end{joblong}
+
+\begin{joblong}{MAT215: Complex Variables \& Laplace Transformations}{}
+	\item Learned complex numbers and functions including algebraic and polar forms, Euler's formula, De Moivre's theorem, and exponential, logarithmic, and trigonometric functions of a complex variable
+	\item Studied analytic functions including Cauchy-Riemann equations, harmonic functions, and conformal mappings
+	\item Covered complex integration including Cauchy's Integral Theorem, Cauchy's Integral Formula, and contour integration
+	\item Studied series expansions and singularities including Taylor and Laurent series, classification of singular points, and poles
+	\item Solved problems using residue calculus to evaluate real integrals and applied Laplace transforms to solve ordinary differential equations
+\end{joblong}
+
+%----------------------------------------------------------------------------------------
+%	PROJECTS
+%----------------------------------------------------------------------------------------
+\section{Projects}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+    \textbf{AetherGuard: A Private Password Manager} & \hfill \href{https://github.com/thisisarnabdas/AetherGuard}{Link to Project}                                                                                                                                                                                                                                       \\[3.75pt]
+    \multicolumn{2}{@{}X@{}}{Built a full-stack password manager using Python and Flask; implemented AES-256 encryption for stored credentials and Argon2 password hashing for user authentication, with full CRUD operations, random password generation, account management features, and a dark-themed glassmorphism web interface backed by a local SQLite database.} \\
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+    \textbf{Demo Stock Exchange Interface} & \hfill \href{https://github.com/thisisarnabdas/DSE}{Link to Project}                                                                                                                                                                                \\[3.75pt]
+    \multicolumn{2}{@{}X@{}}{Built a Demo Stock Exchange desktop app with Python, CustomTkinter, and SQLite, featuring user authentication (login/signup with NID and phone validation), wallet management, portfolio tracking, stock trading, and a responsive UI with dark/light mode toggle.} \\
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+    \textbf{Air Quality Prediction: ML Classification Project} & \hfill \href{https://github.com/thisisarnabdas/CSE422_Project-Air-Quality-Prediction-}{Link to Project}                                                                                                                                                                                                                                                                                                        \\[3.75pt]
+    \multicolumn{2}{@{}X@{}}{
+        Built an air quality prediction system on the UCI Air Quality dataset using Decision Tree, Random Forest, and KNN classifiers; engineered a CO-level target variable from CO\textsubscript{GT} readings with full preprocessing pipeline (missing value imputation, column pruning, label encoding); achieved 99.68\% test accuracy with Random Forest; conducted EDA with distribution plots, correlation analysis, and violin charts to derive environmental insights.
+    } \\
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+    \textbf{Network Intrusion Detection System} & \hfill \href{https://github.com/thisisarnabdas/Aegis}{Link to Project}                                                                                                                                                                                                                                                        \\[3.75pt]
+    \multicolumn{2}{@{}X@{}}{Built a binary network intrusion detection system using the KDD Cup 1999 dataset; applied MinMax normalization, PCA dimensionality reduction, and categorical encoding as a preprocessing pipeline; trained a deep neural network (Keras Sequential) with ReLU and Sigmoid activations to classify network traffic as intrusion or non-intrusion.} \\
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+%	CERTIFICATES
+%----------------------------------------------------------------------------------------
+\section{Awards and Certifications}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+	\textbf{Vice Chancellor's List} & \hfill \href{https://drive.google.com/file/d/1nbuqsdivnm6_zClHqRlCCjtDt9-Hk91V/view?usp=sharing}{Check Transcript} \\[3.75pt]
+	\multicolumn{2}{@{}X@{}}{Appeared on the Vice Chancellor's List three times \hfill } \\
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+    \textbf{Career Essentials in Software Development} & \hfill \href{https://www.linkedin.com/learning/certificates/b47ab2e721fb8ba120d27288096edeca25ef7cfba7b85efdbd84445d1ec05b55}{View Certificate} \\[3.75pt]
+    \multicolumn{2}{@{}X@{}}{Issued by Microsoft \hfill 2024}                                                                                                                                            \\
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+    \textbf{Career Essentials in Generative AI} & \hfill \href{https://www.linkedin.com/learning/certificates/6f72b0e48a5817dc558db49ca0673a70bb89d664f12973b92fb28f3bbaa996db}{View Certificate} \\[3.75pt]
+    \multicolumn{2}{@{}X@{}}{Issued by Microsoft \hfill 2024}                                                                                                                                     \\
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+    \textbf{Champion – Creative Talent Search Competition} & \hfill \href{https://drive.google.com/file/d/1m3npleUNXnW2Rd6uJq2z2-FtGwx6_NgP/view?usp=sharing}{View Certificate} \\[3.75pt]
+    \multicolumn{2}{@{}X@{}}{Organized by Government of the People’s Republic of Bangladesh \hfill 2017}                                                                        \\
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+%	SKILLS
+%----------------------------------------------------------------------------------------
+\section{Skills}
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+	Programming Languages    & \normalsize{Python, C, C++, JavaScript} \\
+	Systems \& Scripting     & \normalsize{Bash Shell, Linux} \\
+	Database                 & \normalsize{PostgreSQL} \\
+	Documentation \& Typesetting & \normalsize{Markdown, \LaTeX} \\
+	Web Technologies          & \normalsize{HTML, CSS, JavaScript} \\
+	Tools \& Technologies     & \normalsize{Git} \\
+\end{tabularx}
+
+\vfill
+\center{\footnotesize Last updated: \today}
+
+\end{document}
